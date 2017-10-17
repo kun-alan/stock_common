@@ -42,7 +42,7 @@ class Database():
 
             if dbname.upper() == 'MONGO':
 
-                logging.info('Connecting to MONGOS: {host}'.format(
+                logging.info('Connecting to MONGO: {host}'.format(
                     host=self.CONFIGS.MONGO_HOSTS))
 
                 cursor = pymongo.MongoClient(

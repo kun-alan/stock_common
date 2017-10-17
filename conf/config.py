@@ -35,13 +35,15 @@ def get_caller_info():
         Getting Filename and Path of Caller
     """
 
-    frame = inspect.stack()[2]
-    module = inspect.getmodule(frame[0])
-    caller = module.__file__
-    filename = os.path.splitext(os.path.basename(caller))[0]
-    current_path = os.path.dirname(os.path.realpath(caller))
-
-    return filename, current_path
+    try:
+        frame = inspect.stack()[2]
+        module = inspect.getmodule(frame[0])
+        caller = module.__file__
+        filename = os.path.splitext(os.path.basename(caller))[0]
+        current_path = os.path.dirname(os.path.realpath(caller))
+        return filename, current_path
+    except (IndexError, AttributeError):
+        return None, None
 
 
 class Config():
@@ -50,7 +52,7 @@ class Config():
     """
 
     @classmethod
-    def get_configs(cls, env='prod', caller_info=True):
+    def get_configs(cls, env='prod'):
         """
             Getting Configs for specific environment
 
@@ -67,8 +69,7 @@ class Config():
         else:
             raise ValueError('{env} not supported.'.format(env=env))
 
-        if caller_info:
-            CONFIGS.FILENAME, CONFIGS.CURRENT_PATH = get_caller_info()
+        CONFIGS.FILENAME, CONFIGS.CURRENT_PATH = get_caller_info()
 
         return CONFIGS
 
