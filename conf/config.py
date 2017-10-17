@@ -1,9 +1,26 @@
 """
     Configurations
 
-    Config is the class keeps public configurations
-    Secret is the class keeps sensitive information
+    config.py keeps public configurations
+    secret.py keeps sensitive information
     such as username and password
+
+    By default, we alway use prod env, when you need to test your scripts
+    with your local mongo during development, you can use dev env
+
+    secret.py example:
+
+        class SecretProd():
+            MONGO_HOSTS = 'example.com'
+            MONGO_USER = 'foo'
+            MONGO_PASS = 'bar'
+            MONGO_PORT = 27017
+            MONGO_AUTH_METHOD = 'example'
+            MONGO_AUTH_ENABLED = True
+
+        class SecretDev(SecretProd):
+            MONGO_HOSTS = 'localhost'
+            MONGO_AUTH_ENABLED = False
 """
 
 import os
@@ -58,13 +75,6 @@ class Config():
     class Prod(SecretProd):
         """
             Configurations For Production Environment
-            class SecretProd():
-                MONGO_HOSTS = 'example.com'
-                MONGO_USER = 'foo'
-                MONGO_PASS = 'bar'
-                MONGO_PORT = 27017
-                MONGO_AUTH_METHOD = 'example'
-                MONGO_AUTH_ENABLED = True
         """
 
         ENV = 'prod'
@@ -98,9 +108,6 @@ class Config():
     class Dev(SecretDev):
         """
             Configurations For Develop Environment
-            class SecretDev(SecretProd):
-                MONGO_HOSTS = 'localhost'
-                MONGO_AUTH_ENABLED = False
         """
 
         ENV = 'dev'
