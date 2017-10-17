@@ -106,7 +106,7 @@ class Config():
 
             return logging
 
-    class Dev(SecretDev):
+    class Dev(Prod, SecretDev):
         """
             Configurations For Develop Environment
         """

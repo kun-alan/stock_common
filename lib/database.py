@@ -43,10 +43,10 @@ class Database():
             if dbname.upper() == 'MONGO':
 
                 logging.info('Connecting to MONGO: {host}'.format(
-                    host=self.CONFIGS.MONGO_HOSTS))
+                    host=self.CONFIGS.MONGO_HOST))
 
                 cursor = pymongo.MongoClient(
-                    self.CONFIGS.MONGO_HOSTS, self.CONFIGS.MONGO_PORT)
+                    self.CONFIGS.MONGO_HOST, self.CONFIGS.MONGO_PORT)
 
                 if self.CONFIGS.MONGO_AUTH_ENABLED:
                     cursor.admin.authenticate(

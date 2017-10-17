@@ -11,8 +11,14 @@ def test_get_configs():
     """
 
     CONFIGS = Config.get_configs()
+    DEV_CONFIGS = Config.get_configs('dev')
 
     assert CONFIGS.ENV == 'prod'
+    assert CONFIGS.MONGO_HOST
+
+    assert DEV_CONFIGS.ENV == 'dev'
+    assert DEV_CONFIGS.LOG_FILEMODE
+    assert DEV_CONFIGS.MONGO_HOST
 
 
 def test_get_logging():
