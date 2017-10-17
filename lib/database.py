@@ -25,6 +25,17 @@ class Database():
 
         Returns:
             decorator
+
+        Example:
+            from stock_common.lib.database import Database
+            from stock_common.conf.config import Config
+
+            CONFIGS = Config.get_configs()
+            db = Database(CONFIGS)
+
+            @db.connect('MONGO')
+            def pull_data(client):
+                pass
         """
 
         @wrapt.decorator
