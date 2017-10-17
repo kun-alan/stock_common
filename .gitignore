@@ -1,1 +1,5 @@
 */__pycache__
+conf/secret.py
+.condaauto
+.cache
+tests/.cache
