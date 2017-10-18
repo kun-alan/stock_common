@@ -16,6 +16,12 @@ dependencies:
 - !!python/unicode
   'pip=9.0.1=py36_1'
 - !!python/unicode
+  'py=1.4.34=py36_0'
+- !!python/unicode
+  'pymongo=3.4.0=py36_0'
+- !!python/unicode
+  'pytest=3.2.1=py36_0'
+- !!python/unicode
   'python=3.6.2=0'
 - !!python/unicode
   'python-dateutil=2.6.1=py36_0'
@@ -33,6 +39,8 @@ dependencies:
   'tk=8.5.18=0'
 - !!python/unicode
   'wheel=0.29.0=py36_0'
+- !!python/unicode
+  'wrapt=1.10.11=py36_0'
 - !!python/unicode
   'xz=5.2.3=0'
 - !!python/unicode

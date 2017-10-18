@@ -7,18 +7,18 @@ This repository contains reusable code, such as utilities (convenience functions
 https://conda.io/docs/user-guide/tasks/manage-environments.html
 
 export env to yml
-```
+```bash
 source activate kun_alan
 conda env export > environment.yml
 ```
 
 create env from yml
-```
+```bash
 conda env create -f environment.yml
 ```
 
 update env from yml
-```
+```bash
 conda env update -f environment.yml
 ```
 
