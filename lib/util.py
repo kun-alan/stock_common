@@ -2,7 +2,7 @@
     Common functions that being used in watcher recommender and advisor
 """
 
-import pandas_datareader.data as web
+from .quotes import get_quote_yahoo
 
 
 def get_quote(symbols):
@@ -16,4 +16,4 @@ def get_quote(symbols):
         dict
     """
 
-    return web.get_quote_yahoo(symbols)
+    return get_quote_yahoo(symbols)
