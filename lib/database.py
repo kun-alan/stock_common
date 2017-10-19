@@ -9,13 +9,16 @@ import pymongo
 
 
 class Database():
+    """
+        Database class
+    """
 
     def __init__(self, CONFIGS):
         """
         Attributes:
             CONFIGS: configuration class
         """
-        self.CONFIGS = CONFIGS
+        self.configs = CONFIGS
 
     def connect(self, dbname):
         """Decorator for connecting database and closing connection
@@ -53,20 +56,19 @@ class Database():
 
             if dbname.upper() == 'MONGO':
 
-                logging.info('Connecting to MONGO: {host}'.format(
-                    host=self.CONFIGS.MONGO_HOST))
+                logging.info(
+                    'Connecting to MONGO: %s', self.configs.MONGO_HOST)
 
                 cursor = pymongo.MongoClient(
-                    self.CONFIGS.MONGO_HOST, self.CONFIGS.MONGO_PORT)
+                    self.configs.MONGO_HOST, self.configs.MONGO_PORT)
 
-                if self.CONFIGS.MONGO_AUTH_ENABLED:
+                if self.configs.MONGO_AUTH_ENABLED:
                     cursor.admin.authenticate(
-                        self.CONFIGS.MONGO_USER, self.CONFIGS.MONGO_PASS,
-                        mechanism=self.CONFIGS.MONGO_AUTH_METHOD
+                        self.configs.MONGO_USER, self.configs.MONGO_PASS,
+                        mechanism=self.configs.MONGO_AUTH_METHOD
                     )
             else:
-                logging.error('{dbname} is not supported yet'.format(
-                    dbname=dbname))
+                logging.error('%s is not supported yet', dbname)
             try:
                 output = f(cursor, *args, **kwargs)
 
