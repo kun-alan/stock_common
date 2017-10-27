@@ -80,6 +80,9 @@ class Config():
 
         ENV = 'prod'
 
+        # HDF5 Filenames
+        PRICES_H5 = 'prices.h5'
+
         # LOG Configs
         LOG_LEVEL = logging.INFO
         LOG_FORMAT = '%(asctime)s %(levelname)-8s %(message)s'
